@@ -32,18 +32,18 @@ public class CartItemRepository implements ICartItemRepository {
 
     @Override
     public CartItem read(Integer cartItemId) {
-        if (cartItemId == null) {
+        if (cartItemId == null) {  // Check for null to avoid NullPointerException
             return null;
         }
         for (CartItem cartItem : cartItemList) {
-            if (cartItem.getId() == cartItemId) {
+            if (cartItem.getId() == cartItemId) {  // Directly compare primitive int
                 return cartItem;
             }
         }
         return null;
     }
 
-    @Override
+
     public CartItem update(CartItem cartItem) {
         Integer cartItemId = cartItem.getId();
         CartItem existingCartItem = read(cartItemId);
@@ -60,7 +60,7 @@ public class CartItemRepository implements ICartItemRepository {
         return null;
     }
 
-    @Override
+
     public boolean delete(Integer cartItemId) {
         CartItem cartItemToDelete = read(cartItemId);
         if (cartItemToDelete == null) {

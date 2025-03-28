@@ -66,7 +66,7 @@ public class AdminRepository implements IAdminRepository{
     }
 
     @Override
-    public Boolean delete(Integer id) {
+    public boolean delete(Integer id) {
         Admin deleteAdmin = read(id);
         if (deleteAdmin == null){
             return false;

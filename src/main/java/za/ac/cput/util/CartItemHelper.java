@@ -5,7 +5,16 @@ import za.ac.cput.domain.Listing;
 
 public class CartItemHelper {
 
-    public static boolean isValidCartItem(CartItem cartItem) {
-        return cartItem != null && cartItem.getId() >= 0 && cartItem.getList() != null && cartItem.getItems() != null;
+
+    public static boolean isNullOrEmpty(String value) {
+        if (value == null || value.isEmpty())
+            return true;
+        return false;
+    }
+
+    public static boolean notValid(int i) {
+        if (i < 0)
+            return true;
+        return false;
     }
 }

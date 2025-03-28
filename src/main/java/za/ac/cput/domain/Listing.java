@@ -11,10 +11,10 @@ public class Listing {
     private String description ;
     private LocalDate datedPosted;
 
-    public Listing(){
+    private Listing(){
 
     }
-    public  Listing(Builder builder){
+    private  Listing(Builder builder){
 
         this.id = builder.id;
         this.title = builder.title;

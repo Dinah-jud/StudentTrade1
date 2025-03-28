@@ -8,9 +8,9 @@ public class Service {
     private String serviceDescription;
     private double serviceRate;
     private String serviceAvailabilityStatus;
-    private Student serviceProvider;
+    private String serviceProvider;
 
-    public Service(){}
+    private Service(){}
 
     private Service(Builder builder){
         this.serviceIdentification = builder.serviceIdentification;
@@ -41,7 +41,7 @@ public class Service {
         return serviceAvailabilityStatus;
     }
 
-    public Student getServiceProvider() {
+    public String getServiceProvider() {
         return serviceProvider;
     }
 
@@ -63,7 +63,7 @@ public class Service {
         private String serviceDescription;
         private double serviceRate;
         private String serviceAvailabilityStatus;
-        private Student serviceProvider;
+        private String serviceProvider;
 
         public Builder setServiceIdentification(int serviceIdentification) {
             this.serviceIdentification = serviceIdentification;
@@ -90,7 +90,7 @@ public class Service {
             return this;
         }
 
-        public Builder setServiceProvider(Student serviceProvider) {
+        public Builder setServiceProvider(String serviceProvider) {
             this.serviceProvider = serviceProvider;
             return this;
         }

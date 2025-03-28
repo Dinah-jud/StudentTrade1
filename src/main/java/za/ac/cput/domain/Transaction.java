@@ -1,6 +1,7 @@
 package za.ac.cput.domain;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Transaction {
@@ -12,7 +13,7 @@ public class Transaction {
     private Listing listing;
     private double amount;
     private String deliveryOption;
-    private Date date ;
+    private LocalDate date ;
 
     private Transaction(){
 
@@ -23,7 +24,7 @@ public class Transaction {
         this.buyer = builder.buyer;
         this.cart = builder.cart;
         this.amount = builder.amount;
-        this.listing = builder.builder().listing;
+        this.listing = builder.build().listing;
         this.deliveryOption = builder.deliveryOption;
         this.date = builder.date;
 
@@ -33,7 +34,7 @@ public class Transaction {
         return id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -75,7 +76,7 @@ public class Transaction {
                 '}';
     }
 
-    public class Builder{
+    public static class Builder{
         private int id ;
         private Student buyer;
         private Student seller;
@@ -83,7 +84,7 @@ public class Transaction {
         private Listing listing;
         private double amount;
         private String deliveryOption;
-        private Date date ;
+        private LocalDate date ;
 
         public Builder setId(int id) {
             this.id = id;
@@ -119,7 +120,7 @@ public class Transaction {
             return this;
         }
 
-        public Builder setDate(Date date) {
+        public Builder setDate(LocalDate date) {
             this.date = date;
             return this;
         }
@@ -129,14 +130,14 @@ public class Transaction {
             this.buyer = builder.buyer;
             this.cart = builder.cart;
             this.amount = builder.amount;
-            this.listing = builder.builder().listing;
+            this.listing = builder.build().listing;
             this.deliveryOption = builder.deliveryOption;
             this.date = builder.date;
 
             return this;
         }
 
-        public Transaction builder(){
+        public Transaction build(){
             return new Transaction(this);
         }
     }

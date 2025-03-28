@@ -1,79 +1,57 @@
 package za.ac.cput.domain;
 
-
-import java.util.List;
-
 public class CartItem {
 
-    private int id ;
-    private Listing list;
-    private List<CartItem> items;
+    private int id;
+    private Listing listing;
+    private double price;
 
-    public CartItem(){
-
-    }
-    public CartItem(Builder builder ){
+    // Private constructor to enforce the use of the Builder
+    private CartItem(Builder builder) {
         this.id = builder.id;
-        this.list  = builder.list;
-        this.items = builder.items;
+        this.listing = builder.listing;
+        this.price = builder.price;
     }
 
+    // Getters
     public int getId() {
         return id;
     }
 
-    public Listing getList() {
-        return list;
+    public Listing getListing() {
+        return listing;
     }
 
-    public List<CartItem> getItems() {
-        return items;
+    public double getPrice() {
+        return price;
     }
 
-    @Override
-    public String toString() {
-        return "CartItem{" +
-                "id=" + id +
-                ", list=" + list +
-                ", items=" + items +
-                '}';
-    }
+    // Builder class for CartItem
+    public static class Builder {
 
-    public static class Builder{
-        private int id ;
-        private Listing list;
-        private List<CartItem> items;
+        private int id;
+        private Listing listing;
+        private double price;
 
+        // Setter methods for the Builder pattern
         public Builder setId(int id) {
             this.id = id;
             return this;
         }
 
-        public Builder setList(Listing list) {
-            this.list = list;
+        public Builder setListing(Listing listing) {
+            this.listing = listing;
             return this;
         }
 
-        public Builder setItems(List<CartItem> items) {
-            this.items = items;
+        public Builder setPrice(double price) {
+            this.price = price;
             return this;
-
         }
 
-        public void copy(Builder builder){
-            this.id = builder.id;
-            this.list  = builder.list;
-            this.items = builder.items;
-
-
-
+        // Build the CartItem instance
+        public CartItem build() {
+            return new CartItem(this);
         }
-
-        public CartItem build(){
-
-           return new CartItem(this);
-        }
-
-
     }
 }
